@@ -1,10 +1,7 @@
-import React, { FunctionComponent as FC, useState } from 'react';
+import React, { FunctionComponent as FC} from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../store';
-import { setName } from '../store/slices/mySlice';
 
-const BMSerachbar: FC<{}> = () => {
+const BMSearchbar: FC<{}> = () => {
     
   return (
     <div className="container mx-auto pl-4 pr-4 bg-green-300 rounded-b-xl">
@@ -16,11 +13,11 @@ const BMSerachbar: FC<{}> = () => {
     </div>
     </div>
     <div className='flex justify-center relative'>
-        <AiOutlineSearch size={25} className='absolute left-4'/>
-    <input placeholder='Search here' className='w-11/12 mb-4 border border-black pl-6' />
+        <AiOutlineSearch size={25} className='absolute left-7 top-3.5'/>
+    <input placeholder='Search here' className='w-11/12 mb-4 py-3 px-11 border border-black' />
     </div>
     </div>
   );
 }
 
-export default BMSerachbar;
+export default BMSearchbar;

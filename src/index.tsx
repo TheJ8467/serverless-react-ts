@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 import { store } from './store'
 import App from './components/App'
 import './tailwind.css'
+import './index.css'
 
 const el = document.getElementById('root') as HTMLElement
 const root = createRoot(el)

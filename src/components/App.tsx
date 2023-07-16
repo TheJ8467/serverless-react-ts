@@ -1,14 +1,12 @@
 import React, { FunctionComponent } from 'react';
-import Message from './Message';
-import BMSerachbar from './BMSearchbar';
+import BMSearchbar from './BMSearchbar';
+import BMAdbars from './BMAdbars';
 
 const App: FunctionComponent<{}> = () => {
   return (
     <>
-    <BMSerachbar />
-    {/* <div className="container mx-auto">
-      <Message />
-    </div> */}
+    <BMSearchbar />
+    <BMAdbars/>
     </>
   );
 }
