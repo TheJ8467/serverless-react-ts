@@ -1,7 +1,7 @@
-import React, { FunctionComponent as FC} from 'react';
+import { FunctionComponent as FC} from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 
-const BMSearchbar: FC<{}> = () => {
+const Searchbar: FC<{}> = () => {
     
   return (
     <div className="container mx-auto pl-4 pr-4 bg-green-300 rounded-b-xl">
@@ -20,4 +20,4 @@ const BMSearchbar: FC<{}> = () => {
   );
 }
 
-export default BMSearchbar;
+export default Searchbar;

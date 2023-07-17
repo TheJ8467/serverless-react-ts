@@ -1,6 +1,6 @@
-import React, { FunctionComponent as FC} from 'react';
+import { FunctionComponent as FC} from 'react';
 
-const BMAdbars: FC<{}> = () => {
+const Linkbars: FC<{}> = () => {
     
   return (
     <div className='flex overflow-x-auto hide-scrollbar'>
@@ -12,4 +12,4 @@ const BMAdbars: FC<{}> = () => {
   );
 }
 
-export default BMAdbars;
+export default Linkbars;

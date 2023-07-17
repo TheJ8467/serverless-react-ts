@@ -1,12 +1,14 @@
-import React, { FunctionComponent } from 'react';
-import BMSearchbar from './BMSearchbar';
-import BMAdbars from './BMAdbars';
+import { FunctionComponent } from 'react';
+import Searchbar from './Searchbar';
+import Linkbars from './Linkbars';
+import MainSquares from './main-screen/MainSquares';
 
 const App: FunctionComponent<{}> = () => {
   return (
     <>
-    <BMSearchbar />
-    <BMAdbars/>
+    <Searchbar />
+    <Linkbars/>
+    <MainSquares/>
     </>
   );
 }
