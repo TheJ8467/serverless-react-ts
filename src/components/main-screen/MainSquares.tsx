@@ -1,10 +1,19 @@
-import { FunctionComponent as FC} from 'react';
+import { FunctionComponent as FC } from 'react';
 import LargeSqures from './LargeSquare';
+import LongRectangle from './LongRectangle';
+import SmallRectangle from './SmallRectangle';
+import SmallSqures from './SmallSquares';
 
 const MainSquares: FC<{}> = () => {
-    return(
-        <LargeSqures />
-    )
-}
+  return (
+    <>
+      <LargeSqures />
+      <LongRectangle />
+      <SmallRectangle />
+      <LongRectangle />
+      <SmallSqures />
+    </>
+  );
+};
 
-export default MainSquares
+export default MainSquares;
