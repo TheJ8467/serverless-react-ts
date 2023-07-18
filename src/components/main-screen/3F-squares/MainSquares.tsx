@@ -1,7 +1,7 @@
 import { FunctionComponent as FC } from 'react';
-import LargeSqures from './LargeSquare';
+import LargeSqures from './LargeSquares';
 import LongRectangle from './LongRectangle';
-import SmallRectangle from './SmallRectangle';
+import SmallRectangles from './SmallRectangles';
 import SmallSqures from './SmallSquares';
 
 const MainSquares: FC<{}> = () => {
@@ -9,8 +9,8 @@ const MainSquares: FC<{}> = () => {
     <>
       <LargeSqures />
       <LongRectangle />
-      <SmallRectangle />
-      <LongRectangle />
+      <SmallRectangles />
+      <LongRectangle logo={true} />
       <SmallSqures />
     </>
   );
