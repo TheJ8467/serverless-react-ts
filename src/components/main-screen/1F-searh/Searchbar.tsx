@@ -3,7 +3,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 
 const Searchbar: FC<{}> = () => {
   return (
-    <div className="mx-2 bg-green-300 rounded-b-xl">
+    <div className="pt-6 bg-green-300 rounded-b-xl">
       <div className="flex justify-between">
         <div className="m-4">address</div>
         <div className="flex justify-between">

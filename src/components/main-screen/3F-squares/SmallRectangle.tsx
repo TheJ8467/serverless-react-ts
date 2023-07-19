@@ -3,7 +3,7 @@ import { SquareProps } from '../../../interfaces/SquareProps';
 
 const SmallRectangle: FC<SquareProps> = ({ hasLink }) => {
   return (
-    <div className="mx-2 w-6/12 border rounded-lg p-2">
+    <div className="mx-3 w-6/12 border rounded-lg p-2">
       <div className="flex justify-between">
         <div className=" ">
           <div className="flex justify-start">

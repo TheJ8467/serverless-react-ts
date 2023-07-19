@@ -12,7 +12,7 @@ const EventRactangle: FC<{}> = () => {
       spaceBetween={0}
       slidesPerView={1}
       loop={true}
-      className="swiper-slide m-2 w-auto"
+      className="swiper-slide m-4 w-auto"
       autoplay={{
         delay: 5000,
         disableOnInteraction: false,

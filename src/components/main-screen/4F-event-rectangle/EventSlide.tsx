@@ -19,7 +19,7 @@ const EventSlide: FC<EventSlideProps> = ({ id }) => {
         <div className="w-full flex-shrink-0 flex justify-center items-center">
           Slide {id}
           <a
-            className="absolute right-4 bottom-2 border rounded-full px-2 py-1 bg-black bg-opacity-50 text-sm"
+            className="absolute right-2 bottom-2 border rounded-full px-2 py-1 bg-black bg-opacity-50 text-xs text-white font-light"
             href="/"
           >
             {id}/{totalNumber} Go to total event

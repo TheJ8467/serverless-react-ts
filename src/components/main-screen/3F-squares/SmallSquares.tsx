@@ -3,7 +3,7 @@ import SmallSqure from './SmallSquare';
 
 const SmallSqures: FC<{}> = () => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center mx-3 my-2">
       <SmallSqure />
       <SmallSqure />
       <SmallSqure />

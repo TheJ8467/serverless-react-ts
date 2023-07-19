@@ -3,7 +3,7 @@ import { SquareProps } from '../../../interfaces/SquareProps';
 
 const LongRectangle: FC<SquareProps> = ({ logo }) => {
   return (
-    <div className="m-2 w-auto border rounded-lg flex justify-between">
+    <div className="my-3 mx-4 w-auto border rounded-lg flex justify-between">
       <div className="p-2 flex flex-col justify-center">
         <h1 className="font-bold text-2xl">Some title</h1>
         <p>Some texts</p>

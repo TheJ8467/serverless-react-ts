@@ -3,7 +3,7 @@ import { SquareProps } from '../../../interfaces/SquareProps';
 
 const LargeSquare: FC<SquareProps> = ({ char }) => {
   return (
-    <div className="mx-2 w-6/12 border rounded-lg p-2">
+    <div className="mx-1 w-6/12 border rounded-lg px-2">
       <div className="flex justify-start">
         <h1 className=" font-bold text-2xl">Some title</h1>
         {char && <p className="text-small ml-2 border">Char</p>}
