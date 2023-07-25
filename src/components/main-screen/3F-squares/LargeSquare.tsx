@@ -1,7 +1,7 @@
 import { FunctionComponent as FC } from 'react';
 import { SquareProps } from '../../../interfaces/SquareProps';
 
-const LargeSquare: FC<SquareProps> = ({ char, hasLink }) => {
+const LargeSquare: FC<SquareProps> = ({ char, innerImage }) => {
   return (
     <div className="mx-1 w-6/12 border rounded-lg px-2">
       <div className="flex justify-start">
@@ -13,8 +13,8 @@ const LargeSquare: FC<SquareProps> = ({ char, hasLink }) => {
         <p className="font-bold">Some bold texts</p>
       </div>
       <div className="flex justify-between">
-        {hasLink ? (
-          <div className="mt-10 border">small link</div>
+        {innerImage ? (
+          <div className="mt-10 border">img</div>
         ) : (
           <div className="mt-16"></div>
         )}

@@ -1,14 +1,14 @@
 import { FunctionComponent as FC } from 'react';
 import { SquareProps } from '../../../interfaces/SquareProps';
 
-const SmallRectangle: FC<SquareProps> = ({ hasLink }) => {
+const SmallRectangle: FC<SquareProps> = ({ innerImage }) => {
   return (
     <div className="mx-3 w-6/12 border rounded-lg p-2">
       <div className="flex justify-between">
         <div className=" ">
           <div className="flex justify-start">
             <h1 className=" font-bold text-2xl">Title</h1>
-            {hasLink && <div className="border">link</div>}
+            {innerImage && <div className="border">img</div>}
           </div>
 
           <div>
