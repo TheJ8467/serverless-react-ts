@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { addAddress } from '../thunks/addAddress';
 import { Address } from '../../interfaces/Address';
 import { SliceState } from '../../interfaces/SliceState';
@@ -17,13 +17,10 @@ const addressesSlice = createSlice({
     builder.addCase(addAddress.pending, (state, action) => {
       state.isLoading = true;
     });
-    builder.addCase(
-      addAddress.fulfilled,
-      (state, action: PayloadAction<Address>) => {
-        state.isLoading = false;
-        state.data.push(action.payload);
-      },
-    );
+    builder.addCase(addAddress.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.data.push(action.payload);
+    });
     builder.addCase(addAddress.rejected, (state, action) => {
       state.isLoading = false;
       if (action.error) {
@@ -33,4 +30,4 @@ const addressesSlice = createSlice({
   },
 });
 
-export const usersReducer = addressesSlice.reducer;
+export const addressessReducer = addressesSlice.reducer;

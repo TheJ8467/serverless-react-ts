@@ -1,11 +1,14 @@
 import { FunctionComponent as FC } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
+import Address from './Address';
 
 const Searchbar: FC<{}> = () => {
   return (
     <div className="pt-6 bg-green-300 rounded-b-xl">
       <div className="flex justify-between">
-        <div className="m-4">address</div>
+        <div className="m-4">
+          <Address user={user} />
+        </div>
         <div className="flex justify-between">
           <div className="m-4">menu</div>
           <div className="m-4">alert</div>
