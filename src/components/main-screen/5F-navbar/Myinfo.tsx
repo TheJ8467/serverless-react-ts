@@ -7,7 +7,9 @@ const Myinfo: FC<{}> = () => {
   const [doFetchUsers, isLoadingUsers, loadingUsersError] =
     useThunk(fetchUsers);
   const [doCreateUser, isCreatingUser, creatingUserError] = useThunk(addUser);
-  const data = useSelector((state: RootState) => state.users.data);
+  const data = useSelector((state: RootState) => {
+    return state.users.data;
+  });
 
   useEffect(() => {
     doFetchUsers();
@@ -31,7 +33,7 @@ const Myinfo: FC<{}> = () => {
   return (
     <>
       <button onClick={handleUserAdd}>Add user</button>;
-      {creatingUserError && <div>'Error creating user...</div>}
+      {creatingUserError && <div>'Error creating user...'</div>}
       <div>{content}</div>
     </>
   );

@@ -20,7 +20,9 @@ const Navbar: FC<SquareProps> = ({}) => {
           <p className="text-sm">Like</p>
         </div>
         <div className="absolute left-1/2 transform -translate-x-1/2 mb-5">
-          <RiHomeSmileFill size={75} />
+          <Link to="/">
+            <RiHomeSmileFill size={75} />
+          </Link>
         </div>
         <div className="invisible">
           <FaRegRectangleList size={25} />

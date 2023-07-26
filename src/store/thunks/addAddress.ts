@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const addAddress = createAsyncThunk('addresses/add', async () => {
   const response = await axios.post('http://localhost:3005/addresses', {
-    name: 'some name',
+    address: 'some address',
   });
 
   return response.data;
