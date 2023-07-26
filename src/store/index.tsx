@@ -1,13 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { addressessReducer } from './slices/addressesSlice';
+import { addressesReducer } from './slices/addressesSlice';
 import { addressesApi } from './apis/addressesApi';
 import { usersReducer } from './slices/userSlice';
 
 export const store = configureStore({
   reducer: {
     users: usersReducer,
-    addressess: addressessReducer,
     [addressesApi.reducerPath]: addressesApi.reducer,
   },
   middleware(getDefaultMiddleware) {

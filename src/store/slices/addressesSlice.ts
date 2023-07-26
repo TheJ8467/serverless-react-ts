@@ -30,4 +30,4 @@ const addressesSlice = createSlice({
   },
 });
 
-export const addressessReducer = addressesSlice.reducer;
+export const addressesReducer = addressesSlice.reducer;
