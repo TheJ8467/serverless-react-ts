@@ -5,6 +5,7 @@ import { BsSuitHeart } from 'react-icons/bs';
 import { FaRegRectangleList } from 'react-icons/fa6';
 import { BiWinkSmile } from 'react-icons/bi';
 import { RiHomeSmileFill } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
 
 const Navbar: FC<SquareProps> = ({}) => {
   return (
@@ -29,8 +30,10 @@ const Navbar: FC<SquareProps> = ({}) => {
           <p className="text-sm">List</p>
         </div>
         <div className="flex flex-col items-center ">
-          <BiWinkSmile size={25} />
-          <p className="text-sm">My info</p>
+          <Link to="/myinfo">
+            <BiWinkSmile size={25} />
+            <p className="text-sm">My info</p>
+          </Link>
         </div>
       </div>
     </nav>

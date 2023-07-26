@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { addressesReducer } from './slices/addressesSlice';
 import { addressesApi } from './apis/addressesApi';
 import { usersReducer } from './slices/userSlice';
 
@@ -21,6 +20,7 @@ export type AppDispatch = typeof store.dispatch;
 export * from './thunks/fetchUsers';
 export * from './thunks/addUser';
 export * from './thunks/addAddress';
+export * from './thunks/fetchAddress';
 export {
   useFetchAddressesQuery,
   useAddAddressMutation,
