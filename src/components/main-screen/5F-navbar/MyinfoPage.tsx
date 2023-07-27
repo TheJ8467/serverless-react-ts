@@ -1,16 +1,10 @@
-import { useState } from 'react';
+import { FunctionComponent as FC } from 'react';
 import Modal from '../../Modal';
+import { MyInfoProps } from '../../../interfaces/props/MyInfoProps';
 
-function MyInfo() {
-  const [showModal, setShowModal] = useState(false);
-
-  //   const handleClick = () => {
-  //     setShowModal(true);
-  //   };
-
+const MyInfo: FC<MyInfoProps> = ({ showModal, setShowModal }) => {
   const handleClose = () => {
     setShowModal(!showModal);
-    console.log(showModal);
   };
 
   const actionBar = (
@@ -24,13 +18,7 @@ function MyInfo() {
     </Modal>
   );
 
-  return (
-    <div>
-      {/* <button onClick={handleClick}>Open Modal</button>
-      {showModal && modal} */}
-      {showModal && modal}
-    </div>
-  );
-}
+  return <div>{showModal && modal}</div>;
+};
 
 export default MyInfo;

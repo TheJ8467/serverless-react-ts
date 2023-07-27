@@ -1,5 +1,5 @@
 import { FunctionComponent as FC } from 'react';
-import { SquareProps } from '../../../interfaces/SquareProps';
+import { SquareProps } from '../../../interfaces/props/SquareProps';
 
 const SmallRectangle: FC<SquareProps> = ({ innerImage }) => {
   return (

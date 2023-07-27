@@ -1,5 +1,5 @@
 import { FunctionComponent as FC } from 'react';
-import { UserProps } from '../../../interfaces/UserProps';
+import { UserProps } from '../../../interfaces/props/UserProps';
 import { useThunk } from '../../../hooks/use-thunk';
 import { RootState, addAddress, useFetchAddressesQuery } from '../../../store';
 import { fetchAddress } from '../../../store';
