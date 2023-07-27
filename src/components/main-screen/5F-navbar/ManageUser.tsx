@@ -26,16 +26,21 @@ const ManageUser: FC<{}> = () => {
     content = <div>Error fetching data...</div>;
   } else {
     content = data.map((user) => {
-      return <div key={user.id}>{user.name}</div>;
+      return <div key={user.id}>Hi {user.name}, Welcome to my app</div>;
     });
   }
 
   return (
-    <>
-      <button onClick={handleUserAdd}>Add user</button>;
+    <div>
+      {/* <button
+        onClick={handleUserAdd}
+        className="border rounded-full border-black w-6/12"
+      >
+        Add user
+      </button> */}
       {creatingUserError && <div>'Error creating user...'</div>}
-      <div>{content}</div>
-    </>
+      <p>{content}</p>
+    </div>
   );
 };
 
