@@ -3,6 +3,10 @@
     {
       "name": "some name",
       "id": 1
+    },
+    {
+      "name": "some name",
+      "id": 2
     }
   ],
   "addresses": [

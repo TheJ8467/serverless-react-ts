@@ -5,7 +5,7 @@ import MainSquares from './main-screen/3F-squares/MainSquares';
 import EventRactangle from './main-screen/4F-event-rectangle/EventRactangle';
 import Navbar from './main-screen/5F-navbar/Navbar';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Myinfo from './main-screen/5F-navbar/Myinfo';
+import MyinfoPage from './main-screen/5F-navbar/MyinfoPage';
 
 const App: FunctionComponent<{}> = () => {
   return (
@@ -17,7 +17,7 @@ const App: FunctionComponent<{}> = () => {
         <EventRactangle />
         <Navbar />
         <Routes>
-          <Route path="/myinfo" Component={Myinfo} />
+          <Route path="/my-info-page" Component={MyinfoPage} />
           {/* <Route path="/" Component={Navbar} /> */}
         </Routes>
       </div>

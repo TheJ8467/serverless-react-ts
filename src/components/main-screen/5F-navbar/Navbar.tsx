@@ -31,8 +31,8 @@ const Navbar: FC<SquareProps> = ({}) => {
           <FaRegRectangleList size={25} />
           <p className="text-sm">List</p>
         </div>
-        <div className="flex flex-col items-center ">
-          <Link to="/myinfo">
+        <div>
+          <Link to="/my-info-page" className="flex flex-col items-center ">
             <BiWinkSmile size={25} />
             <p className="text-sm">My info</p>
           </Link>

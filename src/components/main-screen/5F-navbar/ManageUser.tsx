@@ -3,7 +3,7 @@ import { useThunk } from '../../../hooks/use-thunk';
 import { RootState, addUser, fetchUsers } from '../../../store';
 import { useSelector } from 'react-redux';
 
-const Myinfo: FC<{}> = () => {
+const ManageUser: FC<{}> = () => {
   const [doFetchUsers, isLoadingUsers, loadingUsersError] =
     useThunk(fetchUsers);
   const [doCreateUser, isCreatingUser, creatingUserError] = useThunk(addUser);
@@ -39,4 +39,4 @@ const Myinfo: FC<{}> = () => {
   );
 };
 
-export default Myinfo;
+export default ManageUser;
