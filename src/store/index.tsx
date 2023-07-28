@@ -2,14 +2,18 @@ import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { addressesApi } from './apis/addressesApi';
 import { usersReducer } from './slices/userSlice';
+import { authApi } from './apis/authApi';
 
 export const store = configureStore({
   reducer: {
     users: usersReducer,
     [addressesApi.reducerPath]: addressesApi.reducer,
+    [authApi.reducerPath]: authApi.reducer,
   },
   middleware(getDefaultMiddleware) {
-    return getDefaultMiddleware().concat(addressesApi.middleware);
+    return getDefaultMiddleware()
+      .concat(addressesApi.middleware)
+      .concat(authApi.middleware);
   },
 });
 
@@ -26,3 +30,13 @@ export {
   useAddAddressMutation,
   useRemoveAddressMutation,
 } from './apis/addressesApi';
+export {
+  useLoginMutation,
+  useLogoutMutation,
+  useRegisterMutation,
+  useGetUserInfoQuery,
+  useUpdateProfileMutation,
+  useResetPasswordMutation,
+  useRefreshTokenMutation,
+  useCheckAuthStatusQuery,
+} from './apis/authApi';
