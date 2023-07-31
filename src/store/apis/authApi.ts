@@ -10,53 +10,53 @@ const authApi = createApi({
     return {
       login: builder.mutation({
         query: (credentials) => ({
-          url: '/auth/login',
+          url: '/login',
           method: 'POST',
           body: credentials,
         }),
       }),
       logout: builder.mutation({
         query: () => ({
-          url: '/auth/logout',
+          url: '/logout',
           method: 'POST',
         }),
       }),
       register: builder.mutation({
         query: (newUserInfo) => ({
-          url: '/auth/register',
+          url: '/register',
           method: 'POST',
           body: newUserInfo,
         }),
       }),
       getUserInfo: builder.query({
         query: () => ({
-          url: '/auth/user',
+          url: '/user',
           method: 'GET',
         }),
       }),
       updateProfile: builder.mutation({
         query: (updatedInfo) => ({
-          url: '/auth/user',
+          url: '/user',
           method: 'PUT',
           body: updatedInfo,
         }),
       }),
       resetPassword: builder.mutation({
         query: (email) => ({
-          url: '/auth/reset-password',
+          url: '/reset-password',
           method: 'POST',
           body: { email },
         }),
       }),
       refreshToken: builder.mutation({
         query: () => ({
-          url: '/auth/refresh-token',
+          url: '/refresh-token',
           method: 'POST',
         }),
       }),
       checkAuthStatus: builder.query({
         query: () => ({
-          url: '/auth/status',
+          url: '/status',
           method: 'GET',
         }),
       }),

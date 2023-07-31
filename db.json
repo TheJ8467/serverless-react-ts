@@ -6,6 +6,11 @@
     }
   ],
   "auth": [],
+  "status": [
+    {
+      "isLogin": false
+    }
+  ],
   "addresses": [
     {
       "id": 1,
