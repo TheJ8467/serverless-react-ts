@@ -1,14 +1,15 @@
-import { FunctionComponent as FC, SetStateAction } from 'react';
+import { FunctionComponent as FC } from 'react';
 import Modal from '../../Modal';
 import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
-import { useSelector } from 'react-redux';
 import ManageUser from './ManageUser';
 
+//this page shows modal version for user authentication.
 const MyInfoPage: FC<ModalCompProps> = ({ showModal, setShowModal }) => {
   const handleClose = () => {
     setShowModal(!showModal);
   };
 
+  // this is close button at the bottom
   const actionBar = (
     <div>
       <button
@@ -19,6 +20,8 @@ const MyInfoPage: FC<ModalCompProps> = ({ showModal, setShowModal }) => {
       </button>
     </div>
   );
+
+  // we will render this, based on state of showModal
   const modal = (
     <Modal onClose={handleClose} actionBar={actionBar}>
       <ManageUser showModal={showModal} setShowModal={setShowModal} />

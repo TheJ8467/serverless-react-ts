@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+//It has endpoints of remove address, add address, fetch address
 const addressesApi = createApi({
   reducerPath: 'addresses',
   baseQuery: fetchBaseQuery({

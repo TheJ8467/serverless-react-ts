@@ -1,5 +1,6 @@
 import { FunctionComponent } from 'react';
 
+// when user uses small screen, it is rendered
 const AppFailed: FunctionComponent<{}> = () => {
   return (
     <div>

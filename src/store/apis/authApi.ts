@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+// It has endpoints of login, logout, register, getUserInfo, updateProfile, resetPassword, refreshToken, checkstatus
 const authApi = createApi({
   reducerPath: 'auth',
   baseQuery: fetchBaseQuery({

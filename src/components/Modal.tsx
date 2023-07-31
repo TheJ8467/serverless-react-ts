@@ -2,6 +2,8 @@ import ReactDOM from 'react-dom';
 import { useEffect } from 'react';
 import { ModalProps } from '../interfaces/props/ModalProps';
 
+// actionBar is for close button at the bottom
+// onClose is for closing by clicking outside of modal
 function Modal({ onClose, children, actionBar }: ModalProps) {
   useEffect(() => {
     document.body.classList.add('overflow-hidden');

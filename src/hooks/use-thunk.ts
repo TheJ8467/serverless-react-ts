@@ -1,6 +1,8 @@
 import { useState, useCallback, SetStateAction } from 'react';
 import { useDispatch } from 'react-redux';
 
+// this hook is for the process of loading on -> get data -> loading off
+
 export function useThunk(
   thunk: () => any,
 ): [() => Promise<void>, boolean, string | null] {
@@ -18,22 +20,3 @@ export function useThunk(
 
   return [runThunk, isLoading, error];
 }
-
-// export function useThunk(thunk: () => any) {
-//   const [isLoading, setIsLoading] = useState(false);
-//   const [error, setError] = useState<string | null>(null);
-//   const dispatch = useDispatch();
-
-//   const runThunk = useCallback(async () => {
-//     setIsLoading(true);
-//     try {
-//       await dispatch(thunk()).unwrap();
-//     } catch (err) {
-//       setError(err instanceof Error ? err.message : String(err));
-//     } finally {
-//       setIsLoading(false);
-//     }
-//   }, [dispatch, thunk]);
-
-//   return [runThunk, isLoading, error];
-// }

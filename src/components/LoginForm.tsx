@@ -1,6 +1,10 @@
+/* eslint-disable import/no-anonymous-default-export */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import React, { useState } from 'react';
 import { useLoginMutation } from '../store';
 
+//this form will be used at ManageUser.tsx
 function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');

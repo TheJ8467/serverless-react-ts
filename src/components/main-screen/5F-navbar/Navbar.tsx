@@ -7,6 +7,7 @@ import { RiHomeSmileFill } from 'react-icons/ri';
 import { NavbarProps } from '../../../interfaces/props/NavbarProps';
 
 const Navbar: FC<NavbarProps> = ({ setShowModal }) => {
+  // this function makes modal open, it controls showModal proped from App.tsx
   const handleMyinfoClick = () => {
     setShowModal(true);
   };

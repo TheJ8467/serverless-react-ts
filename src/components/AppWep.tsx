@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
+//when user uses large screen, rendered this version
 const AppWep: FunctionComponent<{}> = () => {
   return (
     <div>
