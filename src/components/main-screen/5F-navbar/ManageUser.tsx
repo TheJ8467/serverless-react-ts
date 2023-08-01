@@ -1,14 +1,20 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { FunctionComponent as FC } from 'react';
+import { FunctionComponent as FC, SetStateAction } from 'react';
 import { RootState, useCheckAuthStatusQuery } from '../../../store';
 import { useSelector } from 'react-redux';
 import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
+import RegisterPage from './RegisterPage';
 
 // This page is in progress.
 // This page will manage sign in, sign out, register
 
-const ManageUser: FC<ModalCompProps> = ({ showModal, setShowModal }) => {
+const ManageUser: FC<ModalCompProps> = ({
+  showModal,
+  setShowModal,
+  showRegisterModal,
+  setShowRegisterModal,
+}) => {
   const userData = useSelector((state: RootState) => {
     return state.users.data;
   });
@@ -18,21 +24,43 @@ const ManageUser: FC<ModalCompProps> = ({ showModal, setShowModal }) => {
     setShowModal(!showModal);
   };
 
+  const handleRegisterClick = () => {
+    setShowRegisterModal(true);
+  };
+
   let loginStatus;
   if (typeof data !== 'undefined') {
-    loginStatus = <p>{data.isLogin ? 'Logged in' : 'Logged out'}</p>;
+    loginStatus = <p>{data.isLogin ? 'Logged in' : 'Guest'}</p>;
   }
 
   return (
     <div>
-      {/* <p>{content}</p> */}
-      <p className="p-4">{loginStatus}</p>
-      <button
-        className="flex ml-auto border rounded-xl p-2 bg-yellow-400"
-        onClick={handleClose}
-      >
-        Sign in
-      </button>
+      <p className="p-4 text-center">{loginStatus}</p>
+      <div className="flex justify-between m-4">
+        <button
+          className="flex border rounded-xl p-2 bg-yellow-400 mr-4"
+          onClick={handleClose}
+        >
+          Sign in
+        </button>
+        <button
+          className="flex border rounded-xl p-2 bg-blue-400"
+          onClick={handleRegisterClick}
+        >
+          <RegisterPage
+            showModal={false}
+            setShowModal={function (value: SetStateAction<boolean>): void {
+              throw new Error('Function not implemented.');
+            }}
+            showRegisterModal={false}
+            setShowRegisterModal={function (
+              value: SetStateAction<boolean>,
+            ): void {
+              throw new Error('Function not implemented.');
+            }}
+          />
+        </button>
+      </div>
     </div>
   );
 };

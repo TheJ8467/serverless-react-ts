@@ -4,7 +4,12 @@ import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
 import ManageUser from './ManageUser';
 
 //this page shows modal version for user authentication.
-const MyInfoPage: FC<ModalCompProps> = ({ showModal, setShowModal }) => {
+const MyInfoPage: FC<ModalCompProps> = ({
+  showModal,
+  setShowModal,
+  showRegisterModal,
+  setShowRegisterModal,
+}) => {
   const handleClose = () => {
     setShowModal(!showModal);
   };
@@ -24,7 +29,12 @@ const MyInfoPage: FC<ModalCompProps> = ({ showModal, setShowModal }) => {
   // we will render this, based on state of showModal
   const modal = (
     <Modal onClose={handleClose} actionBar={actionBar}>
-      <ManageUser showModal={showModal} setShowModal={setShowModal} />
+      <ManageUser
+        showModal={showModal}
+        setShowModal={setShowModal}
+        showRegisterModal={showRegisterModal}
+        setShowRegisterModal={setShowRegisterModal}
+      />
     </Modal>
   );
 

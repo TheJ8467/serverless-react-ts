@@ -8,6 +8,7 @@ import MyInfoPage from './main-screen/5F-navbar/MyInfoPage';
 
 const App: FunctionComponent<{}> = () => {
   const [showModal, setShowModal] = useState(false);
+  const [showRegisterModal, setShowRegisterModal] = useState(false);
 
   return (
     <div>
@@ -16,7 +17,12 @@ const App: FunctionComponent<{}> = () => {
       <MainSquares />
       <EventRactangle />
       <Navbar setShowModal={setShowModal} />
-      <MyInfoPage showModal={showModal} setShowModal={setShowModal} />
+      <MyInfoPage
+        showModal={showModal}
+        setShowModal={setShowModal}
+        showRegisterModal={showRegisterModal}
+        setShowRegisterModal={setShowRegisterModal}
+      />
     </div>
   );
 };
