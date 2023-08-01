@@ -46,20 +46,7 @@ const ManageUser: FC<ModalCompProps> = ({
         <button
           className="flex border rounded-xl p-2 bg-blue-400"
           onClick={handleRegisterClick}
-        >
-          <RegisterPage
-            showModal={false}
-            setShowModal={function (value: SetStateAction<boolean>): void {
-              throw new Error('Function not implemented.');
-            }}
-            showRegisterModal={false}
-            setShowRegisterModal={function (
-              value: SetStateAction<boolean>,
-            ): void {
-              throw new Error('Function not implemented.');
-            }}
-          />
-        </button>
+        ></button>
       </div>
     </div>
   );
