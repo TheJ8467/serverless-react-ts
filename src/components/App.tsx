@@ -1,11 +1,11 @@
-import { FunctionComponent, SetStateAction, useState } from 'react';
+import { FunctionComponent, useState } from 'react';
 import Searchbar from './main-screen/1F-searh/Searchbar';
 import Linkbars from './main-screen/2F-hashbars/Linkbars';
 import MainSquares from './main-screen/3F-squares/MainSquares';
 import EventRactangle from './main-screen/4F-event-rectangle/EventRactangle';
 import Navbar from './main-screen/5F-navbar/Navbar';
-import MyInfoPage from './main-screen/5F-navbar/MyInfoPage';
-import RegisterPage from './main-screen/5F-navbar/RegisterPage';
+import MyInfoPage from './main-screen/5F-navbar/MyInfoManager';
+import RegisterPage from './main-screen/5F-navbar/RegisterManager';
 
 const App: FunctionComponent<{}> = () => {
   const [showModal, setShowModal] = useState(false);
@@ -25,14 +25,10 @@ const App: FunctionComponent<{}> = () => {
         setShowRegisterModal={setShowRegisterModal}
       />
       <RegisterPage
-        showModal={false}
-        setShowModal={function (value: SetStateAction<boolean>): void {
-          throw new Error('Function not implemented.');
-        }}
-        showRegisterModal={false}
-        setShowRegisterModal={function (value: SetStateAction<boolean>): void {
-          throw new Error('Function not implemented.');
-        }}
+        showModal={showModal}
+        setShowModal={setShowModal}
+        showRegisterModal={showRegisterModal}
+        setShowRegisterModal={setShowRegisterModal}
       />
     </div>
   );

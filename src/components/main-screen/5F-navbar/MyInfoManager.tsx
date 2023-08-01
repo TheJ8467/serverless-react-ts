@@ -1,14 +1,17 @@
-import { FunctionComponent as FC, SetStateAction } from 'react';
-import Modal from '../../Modal';
-import ManageRegister from './ManageRegister';
+import { FunctionComponent as FC } from 'react';
+import Modal from '../../Modal/Modal';
 import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
+import ManageUser from '../../pages/UserInfoModalPage';
 
-const RegisterPage: FC<ModalCompProps> = ({
+//this page shows modal version for user authentication.
+const MyinfoManager: FC<ModalCompProps> = ({
+  showModal,
+  setShowModal,
   showRegisterModal,
   setShowRegisterModal,
 }) => {
   const handleClose = () => {
-    setShowRegisterModal(!showRegisterModal);
+    setShowModal(!showModal);
   };
 
   // this is close button at the bottom
@@ -25,19 +28,21 @@ const RegisterPage: FC<ModalCompProps> = ({
 
   // we will render this, based on state of showModal
   const modal = (
-    <Modal onClose={handleClose} actionBar={actionBar}>
-      <ManageRegister
+    <Modal
+      onClose={handleClose}
+      actionBar={actionBar}
+      containerId="my-info-page"
+    >
+      <ManageUser
+        showModal={showModal}
+        setShowModal={setShowModal}
         showRegisterModal={showRegisterModal}
         setShowRegisterModal={setShowRegisterModal}
-        showModal={false}
-        setShowModal={function (value: SetStateAction<boolean>): void {
-          throw new Error('Function not implemented.');
-        }}
       />
     </Modal>
   );
 
-  return <div>{showRegisterModal && modal}</div>;
+  return <div>{showModal && modal}</div>;
 };
 
-export default RegisterPage;
+export default MyinfoManager;

@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { FunctionComponent as FC, SetStateAction } from 'react';
-import { RootState, useCheckAuthStatusQuery } from '../../../store';
+import { RootState, useCheckAuthStatusQuery } from '../../store';
 import { useSelector } from 'react-redux';
-import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
-import RegisterPage from './RegisterPage';
+import { ModalCompProps } from '../../interfaces/props/ModalCompProps';
+import RegisterPage from '../main-screen/5F-navbar/RegisterManager';
 
 // This page is in progress.
 // This page will manage sign in, sign out, register
 
-const ManageUser: FC<ModalCompProps> = ({
+const UserInfoModalPage: FC<ModalCompProps> = ({
   showModal,
   setShowModal,
   showRegisterModal,
@@ -46,10 +46,12 @@ const ManageUser: FC<ModalCompProps> = ({
         <button
           className="flex border rounded-xl p-2 bg-blue-400"
           onClick={handleRegisterClick}
-        ></button>
+        >
+          Register
+        </button>
       </div>
     </div>
   );
 };
 
-export default ManageUser;
+export default UserInfoModalPage;
