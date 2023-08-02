@@ -6,6 +6,43 @@
     }
   ],
   "auth": [],
+  "register": [
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "email": "ww113",
+      "id": 3
+    },
+    {
+      "email": "sadas14324",
+      "password": "rwrewr33",
+      "id": 4
+    },
+    {
+      "email": "dsadad",
+      "password": "2323",
+      "id": 5
+    },
+    {
+      "email": "wqeqwe",
+      "password": "22",
+      "id": 6
+    },
+    {
+      "email": "ewreeee",
+      "password": "1234",
+      "id": 7
+    },
+    {
+      "email": "dsaww1241",
+      "hashedPassword": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+      "id": 8
+    }
+  ],
   "status": [
     {
       "isLogin": false

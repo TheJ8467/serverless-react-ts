@@ -28,6 +28,11 @@ const UserInfoModalPage: FC<ModalCompProps> = ({
     setShowRegisterModal(true);
   };
 
+  const handleSignInClick = () => {
+    // start from here for setting up sign in modal
+    setShowRegisterModal(true);
+  };
+
   let loginStatus;
   if (typeof data !== 'undefined') {
     loginStatus = <p>{data.isLogin ? 'Logged in' : 'Guest'}</p>;
@@ -39,7 +44,7 @@ const UserInfoModalPage: FC<ModalCompProps> = ({
       <div className="flex justify-between m-4">
         <button
           className="flex border rounded-xl p-2 bg-yellow-400 mr-4"
-          onClick={handleClose}
+          onClick={handleSignInClick}
         >
           Sign in
         </button>

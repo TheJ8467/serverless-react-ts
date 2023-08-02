@@ -1,9 +1,9 @@
 import { FunctionComponent as FC, SetStateAction } from 'react';
 import Modal from '../../Modal/Modal';
-import RegisterModalPage from '../../pages/RegisterModalPage';
+import SignInModalPage from '../../pages/SignInModalPage';
 import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
 
-const RegisterManager: FC<ModalCompProps> = ({
+const SignInManager: FC<ModalCompProps> = ({
   showRegisterModal,
   setShowRegisterModal,
 }) => {
@@ -28,9 +28,9 @@ const RegisterManager: FC<ModalCompProps> = ({
     <Modal
       onClose={handleClose}
       actionBar={actionBar}
-      containerId="register-page"
+      containerId="sign-in-page"
     >
-      <RegisterModalPage
+      <SignInModalPage
         showRegisterModal={showRegisterModal}
         setShowRegisterModal={setShowRegisterModal}
         showModal={false}
@@ -44,4 +44,4 @@ const RegisterManager: FC<ModalCompProps> = ({
   return <div>{showRegisterModal && modal}</div>;
 };
 
-export default RegisterManager;
+export default SignInManager;

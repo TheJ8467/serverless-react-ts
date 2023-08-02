@@ -3,11 +3,11 @@
 import { FunctionComponent as FC, useState } from 'react';
 import { useRegisterMutation } from '../../store';
 import { ModalCompProps } from '../../interfaces/props/ModalCompProps';
-import CryptoJS from 'crypto-js';
 
-// This page manages register
+// This page is in progress.
+// This page will manage sign in, sign out, register
 
-const RegisterModalPage: FC<ModalCompProps> = ({
+const SignInModalPage: FC<ModalCompProps> = ({
   showRegisterModal,
   setShowRegisterModal,
 }) => {
@@ -37,17 +37,12 @@ const RegisterModalPage: FC<ModalCompProps> = ({
     setConfirmPassword(e.target.value);
   };
 
-  const hashPassword = (pwd: any) => {
-    return CryptoJS.SHA256(pwd).toString();
-  };
-
   const handleRegisterSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (password !== ConfirmPassword) {
       alert('Passwords do not match');
     } else {
-      const hashedPassword = hashPassword(password);
-      register({ email, hashedPassword });
+      register({ email, password });
       setEmail('');
       setPassword('');
       setConfirmPassword('');
@@ -92,4 +87,4 @@ const RegisterModalPage: FC<ModalCompProps> = ({
   );
 };
 
-export default RegisterModalPage;
+export default SignInModalPage;
