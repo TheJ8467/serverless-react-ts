@@ -14,6 +14,8 @@ const UserInfoModalPage: FC<ModalCompProps> = ({
   setShowModal,
   showRegisterModal,
   setShowRegisterModal,
+  showSignInModal,
+  setShowSignInModal,
 }) => {
   const userData = useSelector((state: RootState) => {
     return state.users.data;
@@ -30,7 +32,7 @@ const UserInfoModalPage: FC<ModalCompProps> = ({
 
   const handleSignInClick = () => {
     // start from here for setting up sign in modal
-    setShowRegisterModal(true);
+    setShowSignInModal(true);
   };
 
   let loginStatus;

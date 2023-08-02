@@ -4,11 +4,15 @@ import SignInModalPage from '../../pages/SignInModalPage';
 import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
 
 const SignInManager: FC<ModalCompProps> = ({
+  showModal,
+  setShowModal,
   showRegisterModal,
   setShowRegisterModal,
+  showSignInModal,
+  setShowSignInModal,
 }) => {
   const handleClose = () => {
-    setShowRegisterModal(!showRegisterModal);
+    setShowSignInModal(!showSignInModal);
   };
 
   // this is close button at the bottom
@@ -31,17 +35,17 @@ const SignInManager: FC<ModalCompProps> = ({
       containerId="sign-in-page"
     >
       <SignInModalPage
+        showModal={showModal}
+        setShowModal={setShowModal}
         showRegisterModal={showRegisterModal}
         setShowRegisterModal={setShowRegisterModal}
-        showModal={false}
-        setShowModal={function (value: SetStateAction<boolean>): void {
-          throw new Error('Function not implemented.');
-        }}
+        showSignInModal={showSignInModal}
+        setShowSignInModal={setShowSignInModal}
       />
     </Modal>
   );
 
-  return <div>{showRegisterModal && modal}</div>;
+  return <div>{showSignInModal && modal}</div>;
 };
 
 export default SignInManager;

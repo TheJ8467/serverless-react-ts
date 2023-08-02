@@ -6,6 +6,18 @@
     }
   ],
   "auth": [],
+  "login": [
+    {
+      "email": "asdasd",
+      "password": "aweaead",
+      "id": 1
+    },
+    {
+      "email": "weassa",
+      "password": "e6c9a58bc60526d3fc7dfca8684908f39e77090961a314b84166ab29f6cb6106",
+      "id": 2
+    }
+  ],
   "register": [
     {
       "id": 1

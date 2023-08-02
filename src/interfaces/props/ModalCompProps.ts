@@ -5,4 +5,6 @@ export interface ModalCompProps {
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
   showRegisterModal: boolean;
   setShowRegisterModal: React.Dispatch<React.SetStateAction<boolean>>;
+  showSignInModal: boolean;
+  setShowSignInModal: React.Dispatch<React.SetStateAction<boolean>>;
 }

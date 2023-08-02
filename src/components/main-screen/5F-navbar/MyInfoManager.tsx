@@ -1,7 +1,7 @@
 import { FunctionComponent as FC } from 'react';
 import Modal from '../../Modal/Modal';
 import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
-import ManageUser from '../../pages/UserInfoModalPage';
+import UserInfoModalPage from '../../pages/UserInfoModalPage';
 
 //this page shows modal version for user authentication.
 const MyinfoManager: FC<ModalCompProps> = ({
@@ -9,6 +9,8 @@ const MyinfoManager: FC<ModalCompProps> = ({
   setShowModal,
   showRegisterModal,
   setShowRegisterModal,
+  showSignInModal,
+  setShowSignInModal,
 }) => {
   const handleClose = () => {
     setShowModal(!showModal);
@@ -33,11 +35,13 @@ const MyinfoManager: FC<ModalCompProps> = ({
       actionBar={actionBar}
       containerId="my-info-page"
     >
-      <ManageUser
+      <UserInfoModalPage
         showModal={showModal}
         setShowModal={setShowModal}
         showRegisterModal={showRegisterModal}
         setShowRegisterModal={setShowRegisterModal}
+        showSignInModal={showSignInModal}
+        setShowSignInModal={setShowSignInModal}
       />
     </Modal>
   );

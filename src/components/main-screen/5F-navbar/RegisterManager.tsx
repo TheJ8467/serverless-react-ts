@@ -4,8 +4,12 @@ import RegisterModalPage from '../../pages/RegisterModalPage';
 import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
 
 const RegisterManager: FC<ModalCompProps> = ({
+  showModal,
+  setShowModal,
   showRegisterModal,
   setShowRegisterModal,
+  showSignInModal,
+  setShowSignInModal,
 }) => {
   const handleClose = () => {
     setShowRegisterModal(!showRegisterModal);
@@ -31,12 +35,12 @@ const RegisterManager: FC<ModalCompProps> = ({
       containerId="register-page"
     >
       <RegisterModalPage
+        showModal={showModal}
+        setShowModal={setShowModal}
         showRegisterModal={showRegisterModal}
         setShowRegisterModal={setShowRegisterModal}
-        showModal={false}
-        setShowModal={function (value: SetStateAction<boolean>): void {
-          throw new Error('Function not implemented.');
-        }}
+        showSignInModal={showSignInModal}
+        setShowSignInModal={setShowSignInModal}
       />
     </Modal>
   );

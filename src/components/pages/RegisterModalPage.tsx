@@ -57,7 +57,7 @@ const RegisterModalPage: FC<ModalCompProps> = ({
   return (
     <div>
       <form onSubmit={handleRegisterSubmit}>
-        <div className="flex justify-between p-4">
+        <div className="flex justify-between p-4 border border-black">
           <label>Email</label>
           <input
             className="w-5/12 border border-black"
@@ -66,7 +66,7 @@ const RegisterModalPage: FC<ModalCompProps> = ({
             value={email}
           />
         </div>
-        <div className="flex justify-between p-4">
+        <div className="flex justify-between p-4 border border-black">
           <label>Password</label>
           <input
             className="w-5/12 border border-black"
@@ -76,7 +76,7 @@ const RegisterModalPage: FC<ModalCompProps> = ({
             type="password"
           />
         </div>
-        <div className="flex justify-between p-4">
+        <div className="flex justify-between p-4 border border-black">
           <label>Confirm password</label>
           <input
             className="w-5/12 border border-black"
@@ -86,7 +86,9 @@ const RegisterModalPage: FC<ModalCompProps> = ({
             type="password"
           />
         </div>
-        <button className="border rounded-lg border-black">Register</button>
+        <button className="border rounded-lg border-black p-2 mt-2 float-right">
+          Register
+        </button>
       </form>
     </div>
   );
