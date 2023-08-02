@@ -37,6 +37,7 @@ const UserInfoModalPage: FC<ModalCompProps> = ({
 
   let loginStatus;
   if (typeof data !== 'undefined') {
+    //TODO: render logged in user instead of Logged in
     loginStatus = <p>{data.isLogin ? 'Logged in' : 'Guest'}</p>;
   }
 

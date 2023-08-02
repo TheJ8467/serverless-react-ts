@@ -15,6 +15,10 @@ const authApi = createApi({
           method: 'POST',
           body: credentials,
         }),
+        transformResponse: () => ({
+          accessToken: 'mockAccessToken',
+          expirationTime: 'mockExpirationTime',
+        }),
       }),
       logout: builder.mutation({
         query: () => ({
@@ -31,13 +35,13 @@ const authApi = createApi({
       }),
       getUserInfo: builder.query({
         query: () => ({
-          url: '/user',
+          url: '/register',
           method: 'GET',
         }),
       }),
       updateProfile: builder.mutation({
         query: (updatedInfo) => ({
-          url: '/user',
+          url: '/register',
           method: 'PUT',
           body: updatedInfo,
         }),

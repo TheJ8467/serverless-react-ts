@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { FunctionComponent as FC, useState } from 'react';
-import { useLoginMutation } from '../../store';
+import { useGetUserInfoQuery, useLoginMutation } from '../../store';
 import { ModalCompProps } from '../../interfaces/props/ModalCompProps';
 import CryptoJS from 'crypto-js';
 
@@ -19,11 +19,11 @@ const SignInModalPage: FC<ModalCompProps> = ({
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleClose = () => {
-    setShowRegisterModal(!showRegisterModal);
-  };
 
-  const [signIn, { isLoading, data, error }] = useLoginMutation();
+  const [signIn] = useLoginMutation();
+  const { data: userInfo, isLoading, isError } = useGetUserInfoQuery({});
+
+
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setEmail(e.target.value);
@@ -47,14 +47,24 @@ const SignInModalPage: FC<ModalCompProps> = ({
       email: email,
       password: hashedPassword,
     };
-    const result = await signIn(credentials).unwrap();
 
-    if (result.status === 'fulfilled') {
-      const { accessToken, expirationTime } = result.data;
-      localStorage.setItem('accessToken', accessToken);
-      localStorage.setItem('expirationTime', expirationTime);
-      setEmail('');
-      setPassword('');
+    try {
+      const result = await signIn(credentials).unwrap();
+      console.log(result)
+  
+      if (userInfo.some((user: { email: any; password: any; }) => user.email === email && user.password === password)) {
+        const { accessToken, expirationTime } = result;
+  
+        localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem('expirationTime', expirationTime);
+        setEmail('');
+        setPassword('');
+        setShowSignInModal(!showSignInModal);
+      } else {
+        alert('Please type correct email and password')
+      }
+    } catch (error) {
+      console.error('Error signing in:', error);
     }
   };
   return (
