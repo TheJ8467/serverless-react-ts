@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { addUser } from '../thunks/addUser';
 import { User } from '../../interfaces/User';
-import { SliceState } from '../../interfaces/SliceState';
+import { UserSliceState } from '../../interfaces/UserSliceState';
 
-const initialState: SliceState<User> = {
+const initialState: UserSliceState<User> = {
   isLoading: false,
   data: [],
   error: null,

@@ -39,6 +39,12 @@ const authApi = createApi({
           method: 'GET',
         }),
       }),
+      getCurrentUserInfo: builder.query({
+        query: () => ({
+          url: '/login',
+          method: 'GET',
+        })
+      }),
       updateProfile: builder.mutation({
         query: (updatedInfo) => ({
           url: '/register',
@@ -65,6 +71,13 @@ const authApi = createApi({
           method: 'GET',
         }),
       }),
+      updateAuthStatus: builder.mutation({
+        query: (status) => ({
+          url: '/status',
+          method: 'POST',
+          body: status
+        })
+      })
     };
   },
 });
@@ -74,9 +87,11 @@ export const {
   useLogoutMutation,
   useRegisterMutation,
   useGetUserInfoQuery,
+  useGetCurrentUserInfoQuery,
   useUpdateProfileMutation,
   useResetPasswordMutation,
   useRefreshTokenMutation,
   useCheckAuthStatusQuery,
+  useUpdateAuthStatusMutation,
 } = authApi;
 export { authApi };

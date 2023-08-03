@@ -3,10 +3,12 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 import { addressesApi } from './apis/addressesApi';
 import { usersReducer } from './slices/userSlice';
 import { authApi } from './apis/authApi';
+import { appReducer } from './slices/appSlice';
 
 export const store = configureStore({
   reducer: {
     users: usersReducer,
+    app: appReducer,
     [addressesApi.reducerPath]: addressesApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
   },
@@ -35,8 +37,10 @@ export {
   useLogoutMutation,
   useRegisterMutation,
   useGetUserInfoQuery,
+  useGetCurrentUserInfoQuery,
   useUpdateProfileMutation,
   useResetPasswordMutation,
   useRefreshTokenMutation,
   useCheckAuthStatusQuery,
+  useUpdateAuthStatusMutation,
 } from './apis/authApi';

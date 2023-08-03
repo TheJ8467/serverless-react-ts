@@ -5,6 +5,8 @@ import UserInfoModalPage from '../../pages/UserInfoModalPage';
 
 //this page shows modal version for user authentication.
 const MyinfoManager: FC<ModalCompProps> = ({
+  isLogin,
+  setIsLogin,
   showModal,
   setShowModal,
   showRegisterModal,
@@ -36,6 +38,8 @@ const MyinfoManager: FC<ModalCompProps> = ({
       containerId="my-info-page"
     >
       <UserInfoModalPage
+      setIsLogin={setIsLogin}
+      isLogin={isLogin}
         showModal={showModal}
         setShowModal={setShowModal}
         showRegisterModal={showRegisterModal}

@@ -1,9 +1,11 @@
-import { FunctionComponent as FC, SetStateAction } from 'react';
+import { FunctionComponent as FC } from 'react';
 import Modal from '../../Modal/Modal';
 import SignInModalPage from '../../pages/SignInModalPage';
 import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
 
 const SignInManager: FC<ModalCompProps> = ({
+  isLogin,
+  setIsLogin,
   showModal,
   setShowModal,
   showRegisterModal,
@@ -35,6 +37,8 @@ const SignInManager: FC<ModalCompProps> = ({
       containerId="sign-in-page"
     >
       <SignInModalPage
+      setIsLogin={setIsLogin}
+      isLogin={isLogin}
         showModal={showModal}
         setShowModal={setShowModal}
         showRegisterModal={showRegisterModal}

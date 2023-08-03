@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { FunctionComponent as FC, SetStateAction } from 'react';
-import { RootState, useCheckAuthStatusQuery } from '../../store';
+import { FunctionComponent as FC, SetStateAction, useEffect, useState } from 'react';
+import { RootState, useCheckAuthStatusQuery, useGetCurrentUserInfoQuery } from '../../store';
 import { useSelector } from 'react-redux';
 import { ModalCompProps } from '../../interfaces/props/ModalCompProps';
-import RegisterPage from '../main-screen/5F-navbar/RegisterManager';
 
 // This page is in progress.
 // This page will manage sign in, sign out, register
 
 const UserInfoModalPage: FC<ModalCompProps> = ({
+  isLogin,
   showModal,
   setShowModal,
   showRegisterModal,
@@ -20,7 +20,10 @@ const UserInfoModalPage: FC<ModalCompProps> = ({
   const userData = useSelector((state: RootState) => {
     return state.users.data;
   });
-  const { isLoading, data, error } = useCheckAuthStatusQuery({});
+  const { data } = useCheckAuthStatusQuery({});
+  const { data: currentUser} = useGetCurrentUserInfoQuery({});
+  const [ user, setUser ] = useState(isLogin)
+
 
   const handleClose = () => {
     setShowModal(!showModal);
@@ -36,9 +39,19 @@ const UserInfoModalPage: FC<ModalCompProps> = ({
   };
 
   let loginStatus;
-  if (typeof data !== 'undefined') {
+
+useEffect(() => {
+  const fetchUserId = async() => {
+  const userId = await currentUser[currentUser.length - 1].email
+  setUser(userId)
+}
+fetchUserId()
+}, [currentUser])
+
+
+if (typeof data !== 'undefined') {
     //TODO: render logged in user instead of Logged in
-    loginStatus = <p>{data.isLogin ? 'Logged in' : 'Guest'}</p>;
+    loginStatus = <p>{isLogin ? user : 'Guest'}</p>;
   }
 
   return (
