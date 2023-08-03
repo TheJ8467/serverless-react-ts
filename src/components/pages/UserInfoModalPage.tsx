@@ -50,7 +50,6 @@ fetchUserId()
 
 
 if (typeof data !== 'undefined') {
-    //TODO: render logged in user instead of Logged in
     loginStatus = <p>{isLogin ? user : 'Guest'}</p>;
   }
 

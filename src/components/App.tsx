@@ -40,7 +40,7 @@ const App: FunctionComponent<{}> = () => {
         setShowSignInModal={setShowSignInModal}
       />
       <SignInManager
-      setIsLogin={setIsLogin}
+        setIsLogin={setIsLogin}
         isLogin={isLogin}
         showModal={showModal}
         setShowModal={setShowModal}
