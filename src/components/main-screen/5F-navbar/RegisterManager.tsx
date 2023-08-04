@@ -2,15 +2,14 @@ import { FunctionComponent as FC, SetStateAction } from 'react';
 import Modal from '../../Modal/Modal';
 import RegisterModalPage from '../../pages/RegisterModalPage';
 import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
+import { useModalState } from '../../../hooks/use-modal-state';
 
-const RegisterManager: FC<ModalCompProps> = ({
-  showRegisterModal,
-  setShowRegisterModal,
-}) => {
-  
+const RegisterManager: FC<ModalCompProps> = ({}) => {
+  const { showRegisterModal, handlesSetShowRegisterModal } = useModalState();
+
   const handleClose = () => {
-    if (setShowRegisterModal) {
-    setShowRegisterModal(!showRegisterModal);
+    if (handlesSetShowRegisterModal) {
+      handlesSetShowRegisterModal(!showRegisterModal);
   }
   };
 
@@ -35,7 +34,7 @@ const RegisterManager: FC<ModalCompProps> = ({
     >
       <RegisterModalPage
         showRegisterModal={showRegisterModal}
-        setShowRegisterModal={setShowRegisterModal}
+        handlesSetShowRegisterModal={handlesSetShowRegisterModal}
       />
     </Modal>
   );

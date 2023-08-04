@@ -2,21 +2,19 @@ import { FunctionComponent as FC } from 'react';
 import Modal from '../../Modal/Modal';
 import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
 import MyInfoModalPage from '../../pages/MyInfoModalPage';
-import { setShowRegisterModal } from '../../../store/slices/modalSlice';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store';
+import { useModalState } from '../../../hooks/use-modal-state';
 
 //this page shows modal version for user authentication.
-const MyinfoManager: FC<ModalCompProps> = ({
-  isLogin,
-  showModal,
-  setShowModal,
-  showSignInModal,
-  setShowSignInModal,
-  showRegisterModal,
-  setShowRegisterModal,
-}) => {
+const MyinfoManager: FC<ModalCompProps> = ({}) => {
+
+  const { isLogin } = useSelector((state:RootState) => state.users)
+  const { showModal, showSignInModal, showRegisterModal, handlesSetShowModal, handlesSetSignInModal, handlesSetShowRegisterModal } = useModalState()
+
   const handleClose = () => {
-    if (setShowModal) {
-    setShowModal(!showModal);
+    if (handlesSetShowModal) {
+      handlesSetShowModal(!showModal);
   }
   };
 
@@ -41,10 +39,10 @@ const MyinfoManager: FC<ModalCompProps> = ({
     >
       <MyInfoModalPage
         isLogin={isLogin}
-        setShowRegisterModal={setShowRegisterModal}
+        handlesSetShowRegisterModal={handlesSetShowRegisterModal}
         showRegisterModal={showRegisterModal}
         showSignInModal={showSignInModal}
-        setShowSignInModal={setShowSignInModal}
+        handlesSetSignInModal={handlesSetSignInModal}
       />
     </Modal>
   );

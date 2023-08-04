@@ -2,15 +2,14 @@ import { FunctionComponent as FC } from 'react';
 import Modal from '../../Modal/Modal';
 import SignInModalPage from '../../pages/SignInModalPage';
 import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
+import { useModalState } from '../../../hooks/use-modal-state';
 
-const SignInManager: FC<ModalCompProps> = ({
-  setIsLogin,
-  showSignInModal,
-  setShowSignInModal,
-}) => {
+const SignInManager: FC<ModalCompProps> = ({}) => {
+  const { showSignInModal, handlesSetIsLogin, handlesSetSignInModal } = useModalState();
+
   const handleClose = () => {
-    if(setShowSignInModal){
-    setShowSignInModal(!showSignInModal);
+    if(handlesSetSignInModal){
+      handlesSetSignInModal(!showSignInModal);
   }
   };
 
@@ -34,9 +33,9 @@ const SignInManager: FC<ModalCompProps> = ({
       containerId="sign-in-page"
     >
       <SignInModalPage
-        setIsLogin={setIsLogin}
+        handlesSetIsLogin={handlesSetIsLogin}
         showSignInModal={showSignInModal}
-        setShowSignInModal={setShowSignInModal}
+        handlesSetSignInModal={handlesSetSignInModal}
       />
     </Modal>
   );

@@ -3,13 +3,14 @@ import { ModalCompProps } from '../../interfaces/props/ModalCompProps';
 import MyInfoManager from '../main-screen/5F-navbar/MyInfoManager';
 import RegisterManager from '../main-screen/5F-navbar/RegisterManager';
 import SignInManager from '../main-screen/5F-navbar/SignInManager';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setShowModal, setShowRegisterModal, setShowSignInModal } from '../../store/slices/modalSlice';
 import { setIsLogin } from '../../store/slices/userSlice';
+import { useModalState } from '../../hooks/use-modal-state';
 
 const ModalManager: FC<ModalCompProps> = () => {
   const dispatch = useDispatch()
-  const { showModal, showRegisterModal, showSignInModal, isLogin } = useSelector( (state: any) => ({...state.modal,   isLogin: state.user ? state.user.isLogin : false,}) )
+  const { showModal, showRegisterModal, showSignInModal, isLogin, handlesSetShowModal, handlesSetIsLogin, handlesSetShowRegisterModal, handlesSetSignInModal } = useModalState();
 
   const handleSetShowModal = (value: boolean) => {
     dispatch(setShowModal(value));
@@ -26,24 +27,23 @@ const ModalManager: FC<ModalCompProps> = () => {
 
   return (
     <>
-
       <MyInfoManager
         isLogin={isLogin}
         showModal={showModal}
-        setShowModal={handleSetShowModal}
+        handlesSetShowModal={handleSetShowModal}
         showRegisterModal={showRegisterModal}
-        setShowRegisterModal={handleSetShowRegisterModal}
+        handlesSetShowRegisterModal={handleSetShowRegisterModal}
         showSignInModal={showSignInModal}
-        setShowSignInModal={handleSetShowSignInModal}
+        handlesSetSignInModal={handleSetShowSignInModal}
       />
       <RegisterManager
         showRegisterModal={showRegisterModal}
-        setShowRegisterModal={handleSetShowRegisterModal}
+        handlesSetShowRegisterModal={handleSetShowRegisterModal}
       />
       <SignInManager
-        setIsLogin={handleSetIsLogin}
+        handlesSetIsLogin={handleSetIsLogin}
         showSignInModal={showSignInModal}
-        setShowSignInModal={handleSetShowSignInModal}
+        handlesSetSignInModal={handleSetShowSignInModal}
       />
     </>
   )

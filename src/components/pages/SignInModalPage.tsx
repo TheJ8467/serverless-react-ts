@@ -1,23 +1,22 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { FunctionComponent as FC, useState } from 'react';
-import { useCheckAuthStatusQuery, useGetUserInfoQuery, useLoginMutation, useUpdateAuthStatusMutation } from '../../store';
+import { RootState, useCheckAuthStatusQuery, useGetUserInfoQuery, useLoginMutation, useUpdateAuthStatusMutation } from '../../store';
 import { ModalCompProps } from '../../interfaces/props/ModalCompProps';
 import CryptoJS from 'crypto-js';
+import { useModalState } from '../../hooks/use-modal-state';
+
 
 // This page is in progress.
 // This page will manage sign in, sign out, register
 
-const SignInModalPage: FC<ModalCompProps> = ({
-  showSignInModal,
-  setShowSignInModal,
-  setIsLogin,
-}) => {
+const SignInModalPage: FC<ModalCompProps> = ({}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { showSignInModal, handlesSetSignInModal, handlesSetIsLogin } = useModalState();
 
   const [signIn] = useLoginMutation();
-  const { data: userInfo, isLoading, isError } = useGetUserInfoQuery({});
+  const { data: userInfo } = useGetUserInfoQuery({});
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setEmail(e.target.value);
@@ -52,11 +51,11 @@ const SignInModalPage: FC<ModalCompProps> = ({
         localStorage.setItem('expirationTime', expirationTime);
         setEmail('');
         setPassword('');
-        if (setIsLogin){
-        setIsLogin(true)
+        if (handlesSetIsLogin){
+        handlesSetIsLogin(true)
         }
-        if (setShowSignInModal) {
-        setShowSignInModal(!showSignInModal);}
+        if (handlesSetSignInModal) {
+        handlesSetSignInModal(!showSignInModal);}
         }
         
     } catch (error) {

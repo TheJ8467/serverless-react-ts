@@ -4,17 +4,16 @@ import { FunctionComponent as FC, useState } from 'react';
 import { useRegisterMutation } from '../../store';
 import { ModalCompProps } from '../../interfaces/props/ModalCompProps';
 import CryptoJS from 'crypto-js';
-import { setShowRegisterModal } from '../../store/slices/modalSlice';
+import { useModalState } from '../../hooks/use-modal-state';
 
 // This page manages register
 
-const RegisterModalPage: FC<ModalCompProps> = ({
-  setShowRegisterModal
-}) => {
+const RegisterModalPage: FC<ModalCompProps> = ({}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [ConfirmPassword, setConfirmPassword] = useState('');
-
+  
+  const { handlesSetShowRegisterModal } = useModalState()
 
   const [register] = useRegisterMutation();
 
@@ -48,8 +47,8 @@ const RegisterModalPage: FC<ModalCompProps> = ({
       setEmail('');
       setPassword('');
       setConfirmPassword('');
-      if (setShowRegisterModal){
-      setShowRegisterModal(false)}
+      if (handlesSetShowRegisterModal){
+      handlesSetShowRegisterModal(false)}
     }
   };
 
