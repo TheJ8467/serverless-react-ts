@@ -4,17 +4,14 @@ import SignInModalPage from '../../pages/SignInModalPage';
 import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
 
 const SignInManager: FC<ModalCompProps> = ({
-  isLogin,
   setIsLogin,
-  showModal,
-  setShowModal,
-  showRegisterModal,
-  setShowRegisterModal,
   showSignInModal,
   setShowSignInModal,
 }) => {
   const handleClose = () => {
+    if(setShowSignInModal){
     setShowSignInModal(!showSignInModal);
+  }
   };
 
   // this is close button at the bottom
@@ -37,12 +34,7 @@ const SignInManager: FC<ModalCompProps> = ({
       containerId="sign-in-page"
     >
       <SignInModalPage
-      setIsLogin={setIsLogin}
-      isLogin={isLogin}
-        showModal={showModal}
-        setShowModal={setShowModal}
-        showRegisterModal={showRegisterModal}
-        setShowRegisterModal={setShowRegisterModal}
+        setIsLogin={setIsLogin}
         showSignInModal={showSignInModal}
         setShowSignInModal={setShowSignInModal}
       />

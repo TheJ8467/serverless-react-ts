@@ -7,13 +7,18 @@ const initialState: UserSliceState<User> = {
   isLoading: false,
   data: [],
   error: null,
+  isLogin: false,
 };
 
 // Fetching, adding user. It was created eariler, it will be built more soon.
 const usersSlice = createSlice({
   name: 'users',
   initialState,
-  reducers: {},
+  reducers: {
+    setIsLogin: (state, action) => {
+      state.isLogin = action.payload
+    }
+  },
   extraReducers(builder) {
     builder.addCase(addUser.pending, (state, action) => {
       state.isLoading = true;
@@ -31,4 +36,7 @@ const usersSlice = createSlice({
   },
 });
 
+export const {
+  setIsLogin
+} = usersSlice.actions
 export const usersReducer = usersSlice.reducer;

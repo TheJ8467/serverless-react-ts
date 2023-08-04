@@ -7,27 +7,15 @@ import Navbar from './main-screen/5F-navbar/Navbar';
 import ModalManager from './Modal/ModalManager';
 
 const App: FunctionComponent<{}> = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [showRegisterModal, setShowRegisterModal] = useState(false);
-  const [showSignInModal, setShowSignInModal] = useState(false);
-  const [isLogin, setIsLogin] = useState(false)
-
+  
   return (
     <div>
       <Searchbar />
       <Linkbars />
       <MainSquares />
       <EventRactangle />
-      <Navbar setShowModal={setShowModal} />
-      <ModalManager 
-        setIsLogin={setIsLogin}
-        isLogin={isLogin}
-        showModal={showModal}
-        setShowModal={setShowModal}
-        showRegisterModal={showRegisterModal}
-        setShowRegisterModal={setShowRegisterModal}
-        showSignInModal={showSignInModal}
-        setShowSignInModal={setShowSignInModal}/>
+      <Navbar />
+      <ModalManager />
     </div>
   );
 };

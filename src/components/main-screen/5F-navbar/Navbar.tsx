@@ -5,11 +5,17 @@ import { FaRegRectangleList } from 'react-icons/fa6';
 import { BiWinkSmile } from 'react-icons/bi';
 import { RiHomeSmileFill } from 'react-icons/ri';
 import { NavbarProps } from '../../../interfaces/props/NavbarProps';
+import { useDispatch } from 'react-redux';
+import { setShowModal } from '../../../store/slices/modalSlice';
 
-const Navbar: FC<NavbarProps> = ({ setShowModal }) => {
+const Navbar: FC<{}> = ({}) => {
   // this function makes modal open, it controls showModal proped from App.tsx
+  const dispatch = useDispatch()
+  const handleSetShowModal = (value: boolean) => {
+    dispatch(setShowModal(value))
+  }
   const handleMyinfoClick = () => {
-    setShowModal(true);
+    handleSetShowModal(true)
   };
 
   return (

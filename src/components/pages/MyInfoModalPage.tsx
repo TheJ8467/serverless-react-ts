@@ -2,40 +2,32 @@
 
 import { FunctionComponent as FC, SetStateAction, useEffect, useState } from 'react';
 import { RootState, useCheckAuthStatusQuery, useGetCurrentUserInfoQuery } from '../../store';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ModalCompProps } from '../../interfaces/props/ModalCompProps';
 
 // This page is in progress.
 // This page will manage sign in, sign out, register
 
-const UserInfoModalPage: FC<ModalCompProps> = ({
-  isLogin,
-  showModal,
-  setShowModal,
-  showRegisterModal,
+const MyInfoModalPage: FC<ModalCompProps> = ({
   setShowRegisterModal,
-  showSignInModal,
   setShowSignInModal,
 }) => {
-  const userData = useSelector((state: RootState) => {
-    return state.users.data;
-  });
+  const { isLogin } = useSelector((state: RootState) => state.users)
+
   const { data } = useCheckAuthStatusQuery({});
   const { data: currentUser} = useGetCurrentUserInfoQuery({});
-  const [ user, setUser ] = useState(isLogin)
-
-
-  const handleClose = () => {
-    setShowModal(!showModal);
-  };
+  const [ user, setUser ] = useState()
 
   const handleRegisterClick = () => {
+    if (setShowRegisterModal) {
     setShowRegisterModal(true);
+  }
   };
 
   const handleSignInClick = () => {
-    // start from here for setting up sign in modal
+    if (setShowSignInModal) {
     setShowSignInModal(true);
+  }
   };
 
   let loginStatus;
@@ -74,4 +66,4 @@ if (typeof data !== 'undefined') {
   );
 };
 
-export default UserInfoModalPage;
+export default MyInfoModalPage;

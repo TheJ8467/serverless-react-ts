@@ -1,21 +1,23 @@
 import { FunctionComponent as FC } from 'react';
 import Modal from '../../Modal/Modal';
 import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
-import UserInfoModalPage from '../../pages/UserInfoModalPage';
+import MyInfoModalPage from '../../pages/MyInfoModalPage';
+import { setShowRegisterModal } from '../../../store/slices/modalSlice';
 
 //this page shows modal version for user authentication.
 const MyinfoManager: FC<ModalCompProps> = ({
   isLogin,
-  setIsLogin,
   showModal,
   setShowModal,
-  showRegisterModal,
-  setShowRegisterModal,
   showSignInModal,
   setShowSignInModal,
+  showRegisterModal,
+  setShowRegisterModal,
 }) => {
   const handleClose = () => {
+    if (setShowModal) {
     setShowModal(!showModal);
+  }
   };
 
   // this is close button at the bottom
@@ -37,13 +39,10 @@ const MyinfoManager: FC<ModalCompProps> = ({
       actionBar={actionBar}
       containerId="my-info-page"
     >
-      <UserInfoModalPage
-      setIsLogin={setIsLogin}
-      isLogin={isLogin}
-        showModal={showModal}
-        setShowModal={setShowModal}
-        showRegisterModal={showRegisterModal}
+      <MyInfoModalPage
+        isLogin={isLogin}
         setShowRegisterModal={setShowRegisterModal}
+        showRegisterModal={showRegisterModal}
         showSignInModal={showSignInModal}
         setShowSignInModal={setShowSignInModal}
       />

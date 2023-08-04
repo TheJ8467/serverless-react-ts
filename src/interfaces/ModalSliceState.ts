@@ -1,5 +1,4 @@
-export interface AppSliceState {
-  isLogin: boolean,
+export interface ModalSliceState {
   showModal: boolean,
   showRegisterModal: boolean,
   showSignInModal: boolean,

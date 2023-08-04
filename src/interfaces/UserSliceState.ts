@@ -4,4 +4,5 @@ export interface UserSliceState<T> {
   isLoading: boolean;
   data: T[];
   error: string | null | undefined;
+  isLogin: boolean;
 }

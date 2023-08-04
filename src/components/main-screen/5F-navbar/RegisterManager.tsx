@@ -4,15 +4,14 @@ import RegisterModalPage from '../../pages/RegisterModalPage';
 import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
 
 const RegisterManager: FC<ModalCompProps> = ({
-  showModal,
-  setShowModal,
   showRegisterModal,
   setShowRegisterModal,
-  showSignInModal,
-  setShowSignInModal,
 }) => {
+  
   const handleClose = () => {
+    if (setShowRegisterModal) {
     setShowRegisterModal(!showRegisterModal);
+  }
   };
 
   // this is close button at the bottom
@@ -35,12 +34,8 @@ const RegisterManager: FC<ModalCompProps> = ({
       containerId="register-page"
     >
       <RegisterModalPage
-        showModal={showModal}
-        setShowModal={setShowModal}
         showRegisterModal={showRegisterModal}
         setShowRegisterModal={setShowRegisterModal}
-        showSignInModal={showSignInModal}
-        setShowSignInModal={setShowSignInModal}
       />
     </Modal>
   );

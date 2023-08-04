@@ -11,7 +11,6 @@ import CryptoJS from 'crypto-js';
 const SignInModalPage: FC<ModalCompProps> = ({
   showSignInModal,
   setShowSignInModal,
-  isLogin,
   setIsLogin,
 }) => {
   const [email, setEmail] = useState('');
@@ -56,7 +55,9 @@ const SignInModalPage: FC<ModalCompProps> = ({
         if (setIsLogin){
         setIsLogin(true)
         }
+        if (setShowSignInModal) {
         setShowSignInModal(!showSignInModal);}
+        }
         
     } catch (error) {
       console.error('Error signing in:', error);
