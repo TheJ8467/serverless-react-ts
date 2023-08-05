@@ -8,9 +8,7 @@ const SignInManager: FC<ModalCompProps> = ({}) => {
   const { showSignInModal, handlesSetIsLogin, handlesSetSignInModal } = useModalState();
 
   const handleClose = () => {
-    if(handlesSetSignInModal){
       handlesSetSignInModal(!showSignInModal);
-  }
   };
 
   // this is close button at the bottom

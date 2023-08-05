@@ -9,39 +9,35 @@ import { useModalState } from '../../hooks/use-modal-state';
 // This page will manage sign in, sign out, register
 
 const MyInfoModalPage: FC<ModalCompProps> = ({}) => {
-  const { isLogin, handlesSetShowRegisterModal, handlesSetSignInModal } = useModalState();
+  const { isLogin, email, handlesSetShowRegisterModal, handlesSetSignInModal } = useModalState();
 
   const { data } = useCheckAuthStatusQuery({});
   const { data: currentUser} = useGetCurrentUserInfoQuery({});
   const [ user, setUser ] = useState()
 
   const handleRegisterClick = () => {
-    if (handlesSetShowRegisterModal) {
       handlesSetShowRegisterModal(true);
-  }
   };
 
   const handleSignInClick = () => {
-    if (handlesSetSignInModal) {
       handlesSetSignInModal(true);
-  }
   };
 
   let loginStatus;
 //Add isloading, error state if possible
-useEffect(() => {
-  const fetchUserId = async() => {
-    if (currentUser && currentUser.length > 0) {
-  const userId = await currentUser[currentUser.length - 1].email
-  setUser(userId)
-  }
-}
- {isLogin && fetchUserId()}
-}, [currentUser, isLogin])
+// useEffect(() => {
+//   const fetchUserId = async() => {
+//     if (currentUser && currentUser.length > 0) {
+//   const userId = await currentUser[currentUser.length - 1].email
+//   setUser(userId)
+//   }
+// }
+//  {isLogin && fetchUserId()}
+// }, [currentUser, isLogin])
 
 
 if (typeof data !== 'undefined') {
-    loginStatus = <p>{isLogin ? user : 'Guest'}</p>;
+    loginStatus = <p>{isLogin ? email : 'Guest'}</p>;
   }
 
   return (

@@ -8,9 +8,7 @@ const RegisterManager: FC<ModalCompProps> = ({}) => {
   const { showRegisterModal, handlesSetShowRegisterModal } = useModalState();
 
   const handleClose = () => {
-    if (handlesSetShowRegisterModal) {
       handlesSetShowRegisterModal(!showRegisterModal);
-  }
   };
 
   // this is close button at the bottom

@@ -13,9 +13,7 @@ const MyinfoManager: FC<ModalCompProps> = ({}) => {
   const { showModal, showSignInModal, showRegisterModal, handlesSetShowModal, handlesSetSignInModal, handlesSetShowRegisterModal } = useModalState()
 
   const handleClose = () => {
-    if (handlesSetShowModal) {
       handlesSetShowModal(!showModal);
-  }
   };
 
   // this is close button at the bottom

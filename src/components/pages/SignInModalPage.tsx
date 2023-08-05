@@ -13,7 +13,7 @@ import { useModalState } from '../../hooks/use-modal-state';
 const SignInModalPage: FC<ModalCompProps> = ({}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { showSignInModal, handlesSetSignInModal, handlesSetIsLogin } = useModalState();
+  const { showSignInModal, handlesSetSignInModal, handlesSetIsLogin, handleSetEmail } = useModalState();
 
   const [signIn] = useLoginMutation();
   const { data: userInfo } = useGetUserInfoQuery({});
@@ -34,30 +34,26 @@ const SignInModalPage: FC<ModalCompProps> = ({}) => {
 
   const handleSignInSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const hashedPassword = hashPassword(password);
+    // const hashedPassword = hashPassword(password);
 
-    const credentials = {
-      email: email,
-      password: hashedPassword,
-    };
+    // const credentials = {
+    //   email: email,
+    //   password: hashedPassword,
+    // };
 
     try {
-      const result = await signIn(credentials).unwrap();
+      // const result = await signIn(credentials).unwrap();
 
       if (userInfo.some((user: { email: any; password: any; }) => user.email === email && user.password === password)) {
-        const { accessToken, expirationTime } = result;
+        // const { accessToken, expirationTime } = result;
   
-        localStorage.setItem('accessToken', accessToken);
-        localStorage.setItem('expirationTime', expirationTime);
+        // localStorage.setItem('accessToken', accessToken);
+        // localStorage.setItem('expirationTime', expirationTime);
+        handleSetEmail(email)
         setEmail('');
         setPassword('');
-        if (handlesSetIsLogin){
         handlesSetIsLogin(true)
-        }
-        if (handlesSetSignInModal) {
-        handlesSetSignInModal(!showSignInModal);}
-        }
-        
+        handlesSetSignInModal(!showSignInModal);}        
     } catch (error) {
       console.error('Error signing in:', error);
     }

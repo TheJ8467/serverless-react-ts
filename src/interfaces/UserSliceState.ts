@@ -5,4 +5,5 @@ export interface UserSliceState<T> {
   data: T[];
   error: string | null | undefined;
   isLogin: boolean;
+  email: string;
 }

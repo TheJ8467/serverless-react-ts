@@ -47,9 +47,7 @@ const RegisterModalPage: FC<ModalCompProps> = ({}) => {
       setEmail('');
       setPassword('');
       setConfirmPassword('');
-      if (handlesSetShowRegisterModal){
       handlesSetShowRegisterModal(false)}
-    }
   };
 
   return (
