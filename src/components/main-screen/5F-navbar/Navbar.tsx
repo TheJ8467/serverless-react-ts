@@ -7,14 +7,14 @@ import { RiHomeSmileFill } from 'react-icons/ri';
 import { useDispatch } from 'react-redux';
 import { setShowModal } from '../../../store/slices/modalSlice';
 
-  // this function makes modal open, it controls showModal proped from App.tsx
+// this function makes modal open, it controls showModal proped from App.tsx
 const Navbar: FC<{}> = ({}) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const handleSetShowModal = (value: boolean) => {
-    dispatch(setShowModal(value))
-  }
+    dispatch(setShowModal(value));
+  };
   const handleMyinfoClick = () => {
-    handleSetShowModal(true)
+    handleSetShowModal(true);
   };
 
   return (

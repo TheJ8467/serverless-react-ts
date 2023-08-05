@@ -15,10 +15,10 @@ const authApi = createApi({
           method: 'POST',
           body: credentials,
         }),
-        transformResponse: () => ({
-          accessToken: 'mockAccessToken',
-          expirationTime: 'mockExpirationTime',
-        }),
+        // transformResponse: () => ({
+        //   accessToken: 'mockAccessToken',
+        //   expirationTime: 'mockExpirationTime',
+        // }),
       }),
       logout: builder.mutation({
         query: () => ({

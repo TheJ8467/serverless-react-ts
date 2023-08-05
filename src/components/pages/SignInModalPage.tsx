@@ -1,21 +1,21 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-import { FunctionComponent as FC, useState } from 'react';
-import { RootState, useCheckAuthStatusQuery, useGetUserInfoQuery, useLoginMutation, useUpdateAuthStatusMutation } from '../../store';
+import { FunctionComponent as FC, useEffect, useState } from 'react';
+import {
+  useGetUserInfoQuery,
+  useLoginMutation,
+  useUpdateAuthStatusMutation,
+} from '../../store';
 import { ModalCompProps } from '../../interfaces/props/ModalCompProps';
-import CryptoJS from 'crypto-js';
 import { useModalState } from '../../hooks/use-modal-state';
-
-
-// This page is in progress.
-// This page will manage sign in, sign out, register
 
 const SignInModalPage: FC<ModalCompProps> = ({}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { showSignInModal, handlesSetSignInModal, handlesSetIsLogin, handleSetEmail } = useModalState();
-
-  const [signIn] = useLoginMutation();
+  const {
+    showSignInModal,
+    handlesSetSignInModal,
+    handlesSetIsLogin,
+    handleSetEmail,
+  } = useModalState();
   const { data: userInfo } = useGetUserInfoQuery({});
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -28,32 +28,24 @@ const SignInModalPage: FC<ModalCompProps> = ({}) => {
     setPassword(e.target.value);
   };
 
-  const hashPassword = (pwd: any) => {
-    return CryptoJS.SHA256(pwd).toString();
-  };
-
   const handleSignInSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // const hashedPassword = hashPassword(password);
-
-    // const credentials = {
-    //   email: email,
-    //   password: hashedPassword,
-    // };
-
     try {
-      // const result = await signIn(credentials).unwrap();
-
-      if (userInfo.some((user: { email: any; password: any; }) => user.email === email && user.password === password)) {
-        // const { accessToken, expirationTime } = result;
-  
-        // localStorage.setItem('accessToken', accessToken);
-        // localStorage.setItem('expirationTime', expirationTime);
-        handleSetEmail(email)
+      if (
+        userInfo.some(
+          (user: { email: any; password: any }) =>
+            user.email === email && user.password === password,
+        )
+      ) {
+        localStorage.setItem('isLogin', 'true');
+        localStorage.setItem('email', email);
+        console.log(localStorage);
+        handleSetEmail(email);
         setEmail('');
         setPassword('');
-        handlesSetIsLogin(true)
-        handlesSetSignInModal(!showSignInModal);}        
+        handlesSetIsLogin(true);
+        handlesSetSignInModal(!showSignInModal);
+      }
     } catch (error) {
       console.error('Error signing in:', error);
     }

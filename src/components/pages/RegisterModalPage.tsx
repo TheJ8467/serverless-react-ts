@@ -12,8 +12,8 @@ const RegisterModalPage: FC<ModalCompProps> = ({}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [ConfirmPassword, setConfirmPassword] = useState('');
-  
-  const { handlesSetShowRegisterModal } = useModalState()
+
+  const { handlesSetShowRegisterModal } = useModalState();
 
   const [register] = useRegisterMutation();
 
@@ -47,7 +47,8 @@ const RegisterModalPage: FC<ModalCompProps> = ({}) => {
       setEmail('');
       setPassword('');
       setConfirmPassword('');
-      handlesSetShowRegisterModal(false)}
+      handlesSetShowRegisterModal(false);
+    }
   };
 
   return (

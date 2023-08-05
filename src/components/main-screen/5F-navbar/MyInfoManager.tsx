@@ -8,12 +8,18 @@ import { useModalState } from '../../../hooks/use-modal-state';
 
 //this page shows modal version for user authentication.
 const MyinfoManager: FC<ModalCompProps> = ({}) => {
-
-  const { isLogin } = useSelector((state:RootState) => state.users)
-  const { showModal, showSignInModal, showRegisterModal, handlesSetShowModal, handlesSetSignInModal, handlesSetShowRegisterModal } = useModalState()
+  const { isLogin } = useSelector((state: RootState) => state.users);
+  const {
+    showModal,
+    showSignInModal,
+    showRegisterModal,
+    handlesSetShowModal,
+    handlesSetSignInModal,
+    handlesSetShowRegisterModal,
+  } = useModalState();
 
   const handleClose = () => {
-      handlesSetShowModal(!showModal);
+    handlesSetShowModal(!showModal);
   };
 
   // this is close button at the bottom

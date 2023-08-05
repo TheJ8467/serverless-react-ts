@@ -1,4 +1,4 @@
-import { FunctionComponent as FC, SetStateAction } from 'react';
+import { FunctionComponent as FC } from 'react';
 import Modal from '../../Modal/Modal';
 import RegisterModalPage from '../../pages/RegisterModalPage';
 import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
@@ -8,7 +8,7 @@ const RegisterManager: FC<ModalCompProps> = ({}) => {
   const { showRegisterModal, handlesSetShowRegisterModal } = useModalState();
 
   const handleClose = () => {
-      handlesSetShowRegisterModal(!showRegisterModal);
+    handlesSetShowRegisterModal(!showRegisterModal);
   };
 
   // this is close button at the bottom

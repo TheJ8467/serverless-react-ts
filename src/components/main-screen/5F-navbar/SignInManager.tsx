@@ -5,10 +5,11 @@ import { ModalCompProps } from '../../../interfaces/props/ModalCompProps';
 import { useModalState } from '../../../hooks/use-modal-state';
 
 const SignInManager: FC<ModalCompProps> = ({}) => {
-  const { showSignInModal, handlesSetIsLogin, handlesSetSignInModal } = useModalState();
+  const { showSignInModal, handlesSetIsLogin, handlesSetSignInModal } =
+    useModalState();
 
   const handleClose = () => {
-      handlesSetSignInModal(!showSignInModal);
+    handlesSetSignInModal(!showSignInModal);
   };
 
   // this is close button at the bottom

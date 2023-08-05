@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { FunctionComponent as FC, SetStateAction, useEffect, useState } from 'react';
-import { useCheckAuthStatusQuery, useGetCurrentUserInfoQuery } from '../../store';
+import { FunctionComponent as FC, useEffect } from 'react';
 import { ModalCompProps } from '../../interfaces/props/ModalCompProps';
 import { useModalState } from '../../hooks/use-modal-state';
 
@@ -9,36 +8,38 @@ import { useModalState } from '../../hooks/use-modal-state';
 // This page will manage sign in, sign out, register
 
 const MyInfoModalPage: FC<ModalCompProps> = ({}) => {
-  const { isLogin, email, handlesSetShowRegisterModal, handlesSetSignInModal } = useModalState();
-
-  const { data } = useCheckAuthStatusQuery({});
-  const { data: currentUser} = useGetCurrentUserInfoQuery({});
-  const [ user, setUser ] = useState()
+  const {
+    isLogin,
+    email,
+    handlesSetShowRegisterModal,
+    handlesSetSignInModal,
+    handlesSetIsLogin,
+    handleSetEmail,
+  } = useModalState();
 
   const handleRegisterClick = () => {
-      handlesSetShowRegisterModal(true);
+    handlesSetShowRegisterModal(true);
   };
 
   const handleSignInClick = () => {
-      handlesSetSignInModal(true);
+    handlesSetSignInModal(true);
   };
 
   let loginStatus;
-//Add isloading, error state if possible
-// useEffect(() => {
-//   const fetchUserId = async() => {
-//     if (currentUser && currentUser.length > 0) {
-//   const userId = await currentUser[currentUser.length - 1].email
-//   setUser(userId)
-//   }
-// }
-//  {isLogin && fetchUserId()}
-// }, [currentUser, isLogin])
 
+  useEffect(() => {
+    const isLogin = localStorage.getItem('isLogin');
+    const email = localStorage.getItem('email');
 
-if (typeof data !== 'undefined') {
-    loginStatus = <p>{isLogin ? email : 'Guest'}</p>;
-  }
+    if (isLogin === 'true' && email) {
+      handlesSetIsLogin(true);
+      handleSetEmail(email);
+    }
+
+    console.log(isLogin, email);
+  }, []);
+
+  loginStatus = <p>{isLogin ? email : 'Guest'}</p>;
 
   return (
     <div>
