@@ -18,7 +18,7 @@ const Navbar: FC<{}> = ({}) => {
   };
 
   return (
-    <nav className="w-full border rounded-t-3xl border-b-0 bg-white sticky bottom-0 z-50 relative">
+    <nav className="w-full border rounded-t-3xl border-b-0 bg-white sticky bottom-0 z-10 relative">
       <div className="container mx-auto px-6 py-3 flex justify-between items-center">
         <div className="flex flex-col items-center ">
           <AiOutlineSearch size={25} />

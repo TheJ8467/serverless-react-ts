@@ -39,7 +39,6 @@ const SignInModalPage: FC<ModalCompProps> = ({}) => {
       ) {
         localStorage.setItem('isLogin', 'true');
         localStorage.setItem('email', email);
-        console.log(localStorage);
         handleSetEmail(email);
         setEmail('');
         setPassword('');
