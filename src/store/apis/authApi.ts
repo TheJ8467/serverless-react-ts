@@ -6,7 +6,7 @@ const authApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://localhost:3005',
   }),
-  tagTypes: ['Auth', 'UsersAuth'],
+  tagTypes: ['User'],
   endpoints(builder) {
     return {
       login: builder.mutation({
@@ -32,18 +32,20 @@ const authApi = createApi({
           method: 'POST',
           body: newUserInfo,
         }),
+        invalidatesTags: [{ type: 'User', id: 'LIST' }],
       }),
       getUserInfo: builder.query({
         query: () => ({
           url: '/register',
           method: 'GET',
         }),
+        providesTags: [{ type: 'User', id: 'LIST' }],
       }),
       getCurrentUserInfo: builder.query({
         query: () => ({
           url: '/login',
           method: 'GET',
-        })
+        }),
       }),
       updateProfile: builder.mutation({
         query: (updatedInfo) => ({
@@ -75,9 +77,9 @@ const authApi = createApi({
         query: (status) => ({
           url: '/status',
           method: 'POST',
-          body: status
-        })
-      })
+          body: status,
+        }),
+      }),
     };
   },
 });
