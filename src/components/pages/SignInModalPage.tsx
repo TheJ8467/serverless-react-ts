@@ -44,6 +44,8 @@ const SignInModalPage: FC<ModalCompProps> = ({}) => {
         setPassword('');
         handlesSetIsLogin(true);
         handlesSetSignInModal(!showSignInModal);
+      } else {
+        alert('Email and password may be in correct');
       }
     } catch (error) {
       console.error('Error signing in:', error);
