@@ -1,5 +1,6 @@
+// db.js
 const data = require('../db.json');
 
 module.exports = (req, res) => {
-  res.status(200).send(data);
+  res.status(200).json(data);
 };

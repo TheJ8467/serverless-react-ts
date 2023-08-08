@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 const authApi = createApi({
   reducerPath: 'auth',
   baseQuery: fetchBaseQuery({
-    baseUrl: '/api/db',
+    baseUrl: '/api',
   }),
   tagTypes: ['User'],
   endpoints(builder) {
@@ -15,10 +15,6 @@ const authApi = createApi({
           method: 'POST',
           body: credentials,
         }),
-        // transformResponse: () => ({
-        //   accessToken: 'mockAccessToken',
-        //   expirationTime: 'mockExpirationTime',
-        // }),
       }),
       logout: builder.mutation({
         query: () => ({
